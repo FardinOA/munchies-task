@@ -41,7 +41,6 @@ export const counterSlice = createSlice({
             const isItemExist = state.cart.find((ele) => ele.id === item.id);
 
             if (!isItemExist) {
-                item.quantity = 1;
                 state.cart.push(action.payload);
             }
             localStorage.setItem("cartItems", JSON.stringify(state.cart));

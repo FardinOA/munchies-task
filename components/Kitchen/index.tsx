@@ -104,7 +104,12 @@ const Kitchen = () => {
                                             </p>
                                             <svg
                                                 onClick={() =>
-                                                    dispatch(addToCart(ele))
+                                                    dispatch(
+                                                        addToCart({
+                                                            ...ele,
+                                                            quantity: 1,
+                                                        })
+                                                    )
                                                 }
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="none"
