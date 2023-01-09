@@ -10,7 +10,6 @@ const Nab: NextPage = () => {
     );
     useEffect(() => {}, [cartProducts]);
 
-    console.log(cartProducts);
     return (
         <div className="flex justify-between mx-16">
             <div className="h-[65px] w-[128px]">

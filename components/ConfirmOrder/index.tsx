@@ -1,5 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
@@ -21,6 +22,8 @@ const config = {
 };
 
 const ConfirmOrder = () => {
+    const router = useRouter();
+
     const { shippingInfo, cart: cartItems } = useSelector(
         (state: RootState) => state.cart
     );
@@ -57,7 +60,7 @@ const ConfirmOrder = () => {
         );
         console.log(res);
         if (res.status == 201) {
-            alert("Your order has been placed successfully");
+            router.push("/orders");
         }
     };
     return (

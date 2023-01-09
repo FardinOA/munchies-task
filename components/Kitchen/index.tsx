@@ -4,8 +4,7 @@ import React, { useEffect, useState } from "react";
 import useSWR from "swr";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../features/cartSlice";
-// axios.defaults.headers.common["X-Access-User"] = "afnan.eu.cse@gmail.com";
-// axios.defaults.headers.common["Content-Type"] = "application/json";
+
 const config = {
     headers: {
         "Content-Type": "application/json",
@@ -28,7 +27,6 @@ const Kitchen = () => {
 
     const addToCartHandler = (ele: {}) => {};
 
-    // console.log(products);
     return (
         <div className="bg-[#F7F8FA]">
             {" "}
