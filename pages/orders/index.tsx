@@ -2,6 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import useSWR from "swr";
 
+type OrderType = {
+    _id: string;
+    xUser: string;
+    calculation: { total: number };
+    items: [{ name: string }];
+};
 const tableHead = ["Order Id", "Email", "Total Price", "Ordered Items"];
 
 const config = {
@@ -48,7 +54,7 @@ const Orders = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {orders?.map((ele, ind) => {
+                            {orders?.map((ele: OrderType, ind) => {
                                 return (
                                     <tr
                                         className={`${
