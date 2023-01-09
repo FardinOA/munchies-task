@@ -21,6 +21,7 @@ const Nab: NextPage = () => {
                 <p>Menu</p>
                 <p>Blog</p>
                 <p>contact</p>
+                <Link href={`/orders`}>Orders</Link>
             </div>
             <div className="flex justify-around p-4 w-[10%] text-white">
                 <p>
