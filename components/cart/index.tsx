@@ -98,7 +98,8 @@ const CartPage = () => {
                                         <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                                     </svg>
                                     <input
-                                        className="mx-2 border text-center w-8"
+                                        disabled
+                                        className="mx-2 border focus:outline-none text-center w-8 "
                                         type="text"
                                         value={ele.quantity}
                                     />
@@ -163,9 +164,12 @@ const CartPage = () => {
                                     }, 0)}
                                 </span>
                             </div>
-                            <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
+                            <Link
+                                href={`/shipping`}
+                                className=" border-none hover:bg-[#cc4f39] bg-[tomato] text-white w-full p-[1rem] cursor-pointer transition-all duration-300 m-[2rem] focus:outline-none outline-none "
+                            >
                                 Checkout
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -11,13 +11,31 @@ export interface InitialType {
         name: string;
         quantity: number;
     }[];
+    shippingInfo: {
+        address: string;
+        name: string;
+        phoneNo: string;
+    };
 }
-const data =
+const cartData =
     typeof window !== "undefined" && window.localStorage.getItem("cartItems")
         ? JSON.parse(window.localStorage.getItem("cartItems") || "")
         : [];
+
+const shippingInfoData =
+    typeof window !== "undefined" && window.localStorage.getItem("shippingInfo")
+        ? JSON.parse(window.localStorage.getItem("shippingInfo") || "")
+        : {};
+
 const initialState: InitialType = {
-    cart: data ? data : [],
+    cart: cartData ? cartData : [],
+    shippingInfo: shippingInfoData
+        ? shippingInfoData
+        : {
+              address: "",
+              name: "",
+              phoneNo: "",
+          },
 };
 
 export const counterSlice = createSlice({
@@ -68,11 +86,26 @@ export const counterSlice = createSlice({
             state.cart[objIndex].quantity = state.cart[objIndex].quantity - 1;
             localStorage.setItem("cartItems", JSON.stringify(state.cart));
         },
+        saveShippingInfo: (state, action) => {
+            state.shippingInfo = {
+                ...state.shippingInfo,
+                ...action.payload,
+            };
+            localStorage.setItem(
+                "shippingInfo",
+                JSON.stringify(state.shippingInfo)
+            );
+        },
     },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToCart, increaseQuantity, decreaseQuantity, removeFromCart } =
-    counterSlice.actions;
+export const {
+    addToCart,
+    increaseQuantity,
+    decreaseQuantity,
+    removeFromCart,
+    saveShippingInfo,
+} = counterSlice.actions;
 
 export default counterSlice.reducer;
