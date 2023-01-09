@@ -1,7 +1,9 @@
 import React from "react";
-import Cart from "../../components/Cart";
-const index = () => {
-    return <Cart />;
+
+import { NextPage } from "next";
+import CartPage from "../../components/cart";
+const cartPage: NextPage = () => {
+    return <CartPage />;
 };
 
-export default index;
+export default cartPage;
